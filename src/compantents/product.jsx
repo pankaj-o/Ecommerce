@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import Skeleton from "react-loading-skeleton";
-import { NavLink } from "react-browser-router";
+import { NavLink, useNavigate} from "react-router-dom";
 
 const Product = () => {
+  const navigate=useNavigate()
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
   const [loading, setLoading] = useState(false);
@@ -50,6 +51,9 @@ const Product = () => {
     setFilter(updateddata)
 
   }
+  const handleClick=(id)=>{
+navigate(`sproduct/${id}`)
+  }
 
   const ShowProduct = () => {
     return (
@@ -79,6 +83,9 @@ const Product = () => {
                   <img
                     src={product.image}
                     class="card-img-top"
+                    onClick={()=>handleClick(product.id)
+
+                }
                     alt={product.title}
                     height="250px"
                   />

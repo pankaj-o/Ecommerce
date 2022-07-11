@@ -3,18 +3,21 @@ import React from 'react'
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 import Navbar from "./compantents/Navbar";
-import { Route, Routes } from "react-browser-router";
+import { Route, Routes } from "react-router-dom";
 import Product from "./compantents/Product";
+import {BrowserRouter} from 'react-router-dom'
+import ShowProduct from "./compantents/ShowProduct";
 
 const App = () => {
   return (
-    <>
-      <Navbar />
+    <div>
+      
       <Routes>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/product" component={Product} />
+        <Route exact path="/" element={<Home/>} />
+        <Route exact path="/product" element={<Product/>} />
+        <Route exact path="/sproduct/:id" element={<ShowProduct/>} />
       </Routes>
-    </>
+    </div>
   );
 };
 export default App;

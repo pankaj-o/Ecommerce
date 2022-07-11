@@ -1,13 +1,13 @@
 import React from "react";
-import { Navlink } from "react-browser-router";
-export default function Navbar() {
+import { NavLink} from "react-router-dom";
+ const  Navbar=()=> {
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-white navbar-light py-3 shadow">
         <div className="container">
-          <Navlink className="navbar-brand fw-bold fs-4 mx-2 " to="/"
+          <NavLink className="navbar-brand fw-bold fs-4 mx-2 " to="/"
             COLLECTION
-          ></Navlink>
+          ></NavLink>
           <button
             className="navbar-toggler"
             type="button"
@@ -23,26 +23,26 @@ export default function Navbar() {
             <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
 
               <li className="nav-item">
-                <Navlink className="nav-link active fs-4  mx-2" aria-current="page" to="/">
+                <NavLink className="nav-link active fs-4  mx-2" aria-current="page" to="/">
                   Home
-                </Navlink>
+                </NavLink>
                   
                 
               </li>
 
               <li className="nav-item">
-                <Navlink className="nav-link active fs-4 mx-2"  aria-current="page" to="/product">Product</Navlink>
+                <NavLink className="nav-link active fs-4 mx-2"  aria-current="page" to="/product">Product</NavLink>
                   
                 
               </li>
 
               <li className="nav-item">
-                <Navlink className="nav-link active fs-4 mx-2" aria-current="page" to="/about">About</Navlink>
+                <NavLink className="nav-link active fs-4 mx-2" aria-current="page" to="/about">About</NavLink>
                 
               </li>
 
               <li className="nav-item">
-                <Navlink className="nav-link active fs-4 mx-2" aria-current="page" to="/contact">Contact</Navlink>
+                <NavLink className="nav-link active fs-4 mx-2" aria-current="page" to="/contact">Contact</NavLink>
                  
               </li>
               
@@ -50,23 +50,25 @@ export default function Navbar() {
             
           </div>
           <div className="buttons ">
-                <Navlink to="/login" className="btn btn-outline-dark ms-1">
+                <NavLink to="/login" className="btn btn-outline-dark ms-1">
                 <i className="fa-solid fa-right-to-bracket">Login</i>
-                </Navlink>
-                <Navlink to="/register" className="btn btn-outline-dark mx-1">
+                </NavLink>
+                <NavLink to="/register" className="btn btn-outline-dark mx-1">
 
                 <i className="fa-solid fa-user-plus">Register</i>
-                </Navlink>
+                </NavLink>
               
-                <Navlink to="/cart" className="btn btn-outline-dark ms -1">
+                <NavLink to="/cart" className="btn btn-outline-dark ms -1">
                   
                 <i className="fa-solid fa-cart-shopping">Cart(0)</i>
-                  </Navlink>
+                  </NavLink>
                 
               
             </div>
         </div>
       </nav>
+      
     </>
   );
 }
+export default Navbar;
