@@ -1,14 +1,13 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.css";
-
+import { Navlink } from "react-browser-router";
 export default function Navbar() {
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-white navbar-light py-3 shadow">
         <div className="container">
-          <a className="navbar-brand fw-bold fs-4 mx-2 " href="#">
+          <Navlink className="navbar-brand fw-bold fs-4 mx-2 " to="/"
             COLLECTION
-          </a>
+          ></Navlink>
           <button
             className="navbar-toggler"
             type="button"
@@ -22,40 +21,48 @@ export default function Navbar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+
               <li className="nav-item">
-                <a className="nav-link active fs-4  mx-2" aria-current="page" href="#">
+                <Navlink className="nav-link active fs-4  mx-2" aria-current="page" to="/">
                   Home
-                </a>
+                </Navlink>
+                  
+                
               </li>
+
               <li className="nav-item">
-                <a className="nav-link active fs-4 mx-2"  aria-current="page" href="#">
-                  Product
-                </a>
+                <Navlink className="nav-link active fs-4 mx-2"  aria-current="page" to="/product">Product</Navlink>
+                  
+                
               </li>
+
               <li className="nav-item">
-                <a className="nav-link active fs-4 mx-2" aria-current="page" href="#">
-                  About
-                </a>
+                <Navlink className="nav-link active fs-4 mx-2" aria-current="page" to="/about">About</Navlink>
+                
               </li>
+
               <li className="nav-item">
-                <a className="nav-link active fs-4 mx-2" aria-current="page" href="#">
-                  Contact
-                </a>
+                <Navlink className="nav-link active fs-4 mx-2" aria-current="page" to="/contact">Contact</Navlink>
+                 
               </li>
               
             </ul>
             
           </div>
           <div className="buttons ">
-                <a href="" className="btn btn-outline-dark ms-1">
+                <Navlink to="/login" className="btn btn-outline-dark ms-1">
                 <i className="fa-solid fa-right-to-bracket">Login</i>
-                </a>
-                <a href="" className="btn btn-outline-dark mx-1">
+                </Navlink>
+                <Navlink to="/register" className="btn btn-outline-dark mx-1">
+
                 <i className="fa-solid fa-user-plus">Register</i>
-                </a>
-                <a href="" className="btn btn-outline-dark ms -1">
+                </Navlink>
+              
+                <Navlink to="/cart" className="btn btn-outline-dark ms -1">
+                  
                 <i className="fa-solid fa-cart-shopping">Cart(0)</i>
-                </a>
+                  </Navlink>
+                
               
             </div>
         </div>
