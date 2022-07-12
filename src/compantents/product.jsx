@@ -1,28 +1,22 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import Skeleton from "react-loading-skeleton";
-import { NavLink, useNavigate} from "react-router-dom";
+import { datadt } from "./ApiCall";
+import { NavLink} from "react-router-dom";
 
 const Product = () => {
-  const navigate=useNavigate()
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
   const [loading, setLoading] = useState(false);
-  let componentMounted = true;
 
   useEffect(() => {
     const getProduct = async () => {
       setLoading(true);
-      const response = await fetch("apidata.json");
-      if (componentMounted) {
-        setData(await response.clone().json());
-        setFilter(await response.json());
-        setLoading(false);
-        console.log(filter);
-      }
-      return () => {
-        componentMounted = false;
-      };
+      const response = await datadt();
+    
+      setData(response);
+      setFilter(response);
+      setLoading(false);
     };
 
     getProduct();
@@ -46,55 +40,75 @@ const Product = () => {
       </>
     );
   };
-  const filterproduct=(type)=>{
-    const updateddata=data.filter(x=>x.category===type)
-    setFilter(updateddata)
-
-  }
-  const handleClick=(id)=>{
-navigate(`sproduct/${id}`)
-  }
+  const filterproduct = (type) => {
+    const updateddata = data.filter((x) => x.category === type);
+    setFilter(updateddata);
+  };
+  
 
   const ShowProduct = () => {
     return (
       <>
         <div className="buttonss d-flex justify-content-center mb-5 pb-5 ">
-          <div className="btn btn-outline-dark me-2" onClick={()=>{
-            setData(data)
-          }}>All</div>
-          <div className="btn btn-outline-dark me-2" onClick={()=>{
-            filterproduct("men's clothing")
-          }}>Mens Clothing</div>
-          <div className="btn btn-outline-dark me-2" onClick={()=>{
-            filterproduct("women's clothing")
-          }}>Womens Clothing</div>
-          <div className="btn btn-outline-dark me-2"onClick={()=>{
-            filterproduct("jewelery")
-          }}>jewelary </div>
-          <div className="btn btn-outline-dark me-2"onClick={()=>{
-            filterproduct("electronics")
-          }}>Electronic </div>
+          <div
+            className="btn btn-outline-dark me-2"
+            onClick={() => {
+              setData(data);
+            }}
+          >
+            All
+          </div>
+          <div
+            className="btn btn-outline-dark me-2"
+            onClick={() => {
+              filterproduct("men's clothing");
+            }}
+          >
+            Mens Clothing
+          </div>
+          <div
+            className="btn btn-outline-dark me-2"
+            onClick={() => {
+              filterproduct("women's clothing");
+            }}
+          >
+            Womens Clothing
+          </div>
+          <div
+            className="btn btn-outline-dark me-2"
+            onClick={() => {
+              filterproduct("jewelery");
+            }}
+          >
+            jewelary{" "}
+          </div>
+          <div
+            className="btn btn-outline-dark me-2"
+            onClick={() => {
+              filterproduct("electronics");
+            }}
+          >
+            Electronic{" "}
+          </div>
         </div>
         {filter.map((product) => {
           return (
             <>
-              <div className="col-md-3 mb-">
-                <div class="card h-100 text-centre p-4" key={product.id}>
+              <div className="col-md-3 ">
+                <div className="card h-100 text-centre p-4" key={product.id}>
                   <img
                     src={product.image}
-                    class="card-img-top"
-                    onClick={()=>handleClick(product.id)
-
-                }
+                    className="card-img-top"
+                    
                     alt={product.title}
                     height="250px"
                   />
-                  <div class="card-body">
-                    <h5 class="card-title mb-4">
+                  <div className="card-body">
+                    <h5 className="card-title mb-4">
                       {product.title.substring(0, 12)}...
                     </h5>
-                    <p class="card-text lead fw-bold">${product.price}</p>
-                    <NavLink to="/cart" class="btn btn-outline-dark">
+                    <p className="card-text lead fw-bold">${product.price}</p>
+                    <NavLink to={`/sproduct/${product.id}`} className="btn btn-outline-dark">
                       Buy Now
                     </NavLink>
                   </div>

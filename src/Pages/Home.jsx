@@ -1,5 +1,6 @@
 import React from "react";
-import Navbar from "../compantents/Navbar"
+import Navbar from "../compantents/Navbar";
+import Product from "../compantents/Product";
 
 export default function Home() {
   return (
@@ -10,7 +11,7 @@ export default function Home() {
           src="https://i.picsum.photos/id/1021/2048/1206.jpg?hmac=fqT2NWHx783Pily1V_39ug_GFH1A4GlbmOMu8NWB3Ts"
           className="card-img"
           height="530px"
-          alt="Image Not"
+          alt=" Not found "
         />
         <div className="card-img-overlay d-flex flex-column justify-content-center">
           <div className="container ">
@@ -19,7 +20,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      
+      <Product/>
     </>
   );
 }
