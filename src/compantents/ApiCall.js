@@ -7,6 +7,7 @@ import {obj} from '../apidata.js'
          return data
      }
      catch(e){console.log(e)}
+     
  }
 
 

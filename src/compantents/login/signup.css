@@ -1,0 +1,46 @@
+.main {
+  border: 2px solid ;
+  background-image: url(https://i.picsum.photos/id/1024/1920/1280.jpg?hmac=-PIpG7j_fRwN8Qtfnsc3M8-kC3yb0XYOBfVzlPSuVII);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+h2 {
+  margin-bottom: 15px;
+}
+.signupform {
+  outline: none;
+  font-family: "Recursive", sans-serif;
+  opacity: 0.8;
+  background-color: rgb(206, 218, 214);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 350px;
+  width: 350px;
+  margin: 130px 460px;
+  border-radius: 10px;
+  box-shadow: 40px 18px 0px rgb(209, 249, 249);
+}
+.input {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 20px;
+  height: 31px;
+  width: 230px;
+  font-size: medium;
+}
+.signup {
+  padding: 2px 10px;
+  height: 24px;
+  width: 127px;
+  border-radius: 20px;
+}
+.signup:hover {
+  font-weight: 200;
+  color: white;
+}
+.field{
+  margin: 6px;
+}

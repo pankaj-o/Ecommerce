@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../compantents/Navbar";
-import Product from "../compantents/Product";
+import Product from "../compantents/product";
 
 export default function Home() {
   return (
