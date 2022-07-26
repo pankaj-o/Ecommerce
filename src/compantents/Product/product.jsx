@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState ,useContext} from "react";
 import React from "react";
 import Skeleton from "react-loading-skeleton";
-import { datadt } from "./ApiCall";
+import { cartContext } from "../../App";
 import { NavLink} from "react-router-dom";
 
 const Product = () => {
+  const {Adata,ItemAdded} = useContext(cartContext)
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
   const [loading, setLoading] = useState(false);
@@ -12,10 +13,8 @@ const Product = () => {
   useEffect(() => {
     const getProduct = async () => {
       setLoading(true);
-      const response = await datadt();
-    
-      setData(response);
-      setFilter(response);
+      setData(Adata);
+      setFilter(Adata);
       setLoading(false);
     };
 
@@ -108,6 +107,12 @@ const Product = () => {
                       {product.title.substring(0, 12)}...
                     </h5>
                     <p className="card-text lead fw-bold">${product.price}</p>
+                    <button
+                className="btn btn-outline-dark"
+                onClick={()=>ItemAdded(product.id)}>
+             
+              Add to cart
+              </button>
                     <NavLink to={`/sproduct/${product.id -1}`} className="btn btn-outline-dark">
                       Buy Now
                     </NavLink>

@@ -1,0 +1,60 @@
+.maincart {
+  border: 2px solid black;
+  
+  max-height: 800px;
+  padding: 10px;
+}
+.cartscroll {
+  overflow-y: scroll;
+  border: 2px solid rgb(22, 20, 22);
+  max-height: 400px;
+}
+.cartitem {
+    
+  display: flex;
+  margin: 5px 5px 5px 110px;
+  padding: 5px;
+  border-bottom: 1px solid black;
+  max-height: 600px;
+  max-width: 900px;
+}
+.imagediv {
+  width: 30%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.imagedivimage {
+  max-height: 100px;
+  max-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.quantitydiv {
+  width: 30%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.quantitydiv input {
+  width: 15%;
+  border: none;
+}
+
+.pricediv {
+  width: 25%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.deletediv {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+}
