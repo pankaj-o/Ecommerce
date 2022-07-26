@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./login.css";
 import {  Link } from "react-router-dom";
- import Navbar from "../Navbar";
+ import Navbar from "../Navbar/Navbar";
+import { getEmp } from "../../Service/Service";
  
 const Login = () =>  {
     const [email, setemail] = useState("");
@@ -14,8 +15,17 @@ const Login = () =>  {
   
       setallentry([...allentry, newentry]);
     };
+    const login  = async () =>{
+
+      await getEmp(email,password);
+      console.log("fghh",email)
+      console.log("fgasdcahh",password)
+      
+
+    }
     return (
       <>
+      {/* <Service/> */}
       <Navbar />
         <div className="formdiv">
           <form className="formd" action="" onSubmit={submitted}>
@@ -46,7 +56,7 @@ const Login = () =>  {
               />
             </div>
             <div className="button-container">
-              <button type="submit" className="signin">
+              <button type="submit" onClick={login} className="signin" >
                 Sign-In
               </button>
             </div>
