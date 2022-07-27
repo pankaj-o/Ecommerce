@@ -14,7 +14,7 @@ import reducer from "./compantents/reducer";
 export const cartContext = createContext();
 const intialstate = {
   Adata: Apidata,
-  totalAmount: 0,
+  
   CartItem:[] 
 };
 
@@ -52,7 +52,6 @@ const App = () => {
     
   };
   const ItemAdded = (index) => {
-    // console.log("ItemAdded",index)
     return dispatch({
       type: "ITEMADDED",
       payload: index,

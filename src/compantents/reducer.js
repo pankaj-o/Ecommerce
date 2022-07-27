@@ -1,45 +1,39 @@
 const reducer = (state, action) => {
   if (action.type === "REMOVEITEM") {
+    localStorage.removeItem(action.payload);
     return {
-      ...state,
-      CartItem: state.CartItem.filter((curelem) => {
-        return curelem.id !== action.payload;
-      }),
+      ...state
     };
   }
   if (action.type === "CLEARCART") {
+    localStorage.clear();
     return {
-      ...state,
-      CartItem: [],
+      ...state
     };
   }
   if (action.type === "ITEMADDED") {
-
-    const mydata = state.Adata.find(b=> b.id == action.payload)
-   console.log(mydata)
-    
-    return { ...state, CartItem: state.Adata };
+    const mydata = state.Adata.find((b) => b.id == action.payload);
+    localStorage.setItem(mydata.id, JSON.stringify(mydata));
+    return { ...state, CartItem: mydata };
   }
 
   if (action.type === "INCREMENT") {
-    const updatedCart = state.CartItem.map((curElem) => {
-      if (curElem.id == action.payload) {
-        return { ...curElem, count: curElem.count + 1 };
-      }
-
-      return curElem;
-    });
-    return { ...state, CartItem: updatedCart };
+    const mydata = state.Adata.find((b) => b.id == action.payload);
+    // console.log("inreducer increment",mydata)
+     let po=mydata.count++
+    // console.log("inreducer increment after",mydata)
+    localStorage.setItem(mydata.id, JSON.stringify(mydata));
+    return { ...state};
   }
 
   if (action.type === "DECREMENT") {
-    const updatedCart = state.CartItem.map((curElem) => {
-      if (curElem.id == action.payload) {
-        return { ...curElem, count: curElem.count - 1 };
-      }
-      return curElem;
-    }).filter((curElem) => curElem.count !== 0);
-    return { ...state, CartItem: updatedCart };
+    const mydata = state.Adata.find((b) => b.id == action.payload);
+    // console.log("inreducer increment",mydata)
+    mydata.count<=0? localStorage.removeItem(action.payload):mydata.count--
+    
+    // console.log("inreducer increment after",mydata)
+    localStorage.setItem(mydata.id, JSON.stringify(mydata));
+    return { ...state };
   }
 };
 

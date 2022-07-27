@@ -7,22 +7,20 @@ export const getEmp = async (x,y) => {
         email:x,
         password:y
     }
-    // try{
-
-    //     const resp = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
-      
-    //     return resp.data;
-
-    // }catch(err){
-    //     console.log(err);
-
-
-    // }
+    
 
     try{
 
         const resp = await axios.post('https://developers.promaticstechnologies.com:3021/login',data);
-      
+        const Token=resp.data.token
+
+
+        const Key="token"
+        
+        const User=JSON.stringify(resp.data.user)
+        localStorage.setItem(Key,Token)
+       console.log('token',resp.data.token)
+       console.log("user",resp.data.user)
         return resp.data;
 
     }catch(err){
