@@ -4,29 +4,40 @@ import { cartContext } from "../../App";
 import { NavLink } from "react-router-dom";
 
 export const Cart = ( ) => {
-  const {Adata,removeItem,totalAmount,clearcart,Increment,Decrement,CartItem} = useContext(cartContext);
+  const {Adata,removeItem,clearcart,Increment,Decrement,CartItem} = useContext(cartContext);
   const [loading, setLoading] = useState(false);
-  const [addData, setAddData] = useState([]);
-  const [FData, setFdata] = useState([]);
+  const [totalAmount, setTotalAmount] = useState(0);
+  const addData=[]
+   
+
+ for(let i=1;i<20;i++){
+  let Pdata=JSON.parse(localStorage.getItem(i))
+  Pdata!==null?addData.push( Pdata):console.log('')
+  
+ }
 
   useEffect(() => {
     
     const getfunction = () => {
+      
       setLoading(true);
-      console.log("CartItem",CartItem)
-      // setAddData([CartItem]);
-      setFdata([...addData,CartItem])
-      console.log("FData",FData)
-      // setAddData(addData=>[...addData,[CartItem]]);
+      
+     let Amount=Math.floor(addData.reduce((acc,cur)=>{
+    
+        let p=cur.price*cur.count
+        acc=acc+p;
+        return acc
+    },0))
+    setTotalAmount(Amount)
+    
       setLoading(false);
       
       
     };
     getfunction();
-  }, [Adata,CartItem]);
-
-  // console.log("addData",addData)
-  // console.log("CartItem",CartItem)
+  }, [addData]);
+  
+ 
   
   const Loading = () => {
     <h2>Wait for Loading Data</h2>;
@@ -73,7 +84,7 @@ export const Cart = ( ) => {
             })}
           </div>
           <div className="chekout">
-            <p> Cart Total  = <span>{totalAmount}</span></p>
+            <p> Cart Total  = {totalAmount} </p>
             <NavLink to="" className="btn  ms-3 btn-dark" onClick={()=>{clearcart()}}>
               ClearCart
             </NavLink>

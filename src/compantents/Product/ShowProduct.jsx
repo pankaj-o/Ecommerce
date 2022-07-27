@@ -68,7 +68,7 @@ const ShowProduct = () => {
               <p className="lead ">{product[0] && product[0].description}</p>
               <button
                 className="btn p-1 btn-outline-dark px-4 py-2"
-                onClick={()=>ItemAdded(id+1)}>
+                onClick={()=>ItemAdded(id)}>
              
               Add to cart
               </button>

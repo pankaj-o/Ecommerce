@@ -16,16 +16,18 @@ const Login = () =>  {
       setallentry([...allentry, newentry]);
     };
     const login  = async () =>{
+     
 
+      localStorage.setItem(email,password)
+      
+      sessionStorage.setItem(email,password)
       await getEmp(email,password);
-      console.log("fghh",email)
-      console.log("fgasdcahh",password)
+      
       
 
     }
     return (
       <>
-      {/* <Service/> */}
       <Navbar />
         <div className="formdiv">
           <form className="formd" action="" onSubmit={submitted}>

@@ -1,15 +1,15 @@
 import React from "react";
 import "./signup.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+// import { useState } from "react";
 import Navbar from "../Navbar/Navbar";
 
 const Signup = () => 
 
   {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    // const [name, setName] = useState("");
+    // const [email, setEmail] = useState("");
+    // const [password, setPassword] = useState("");
   
     return (
       <>
@@ -25,9 +25,9 @@ const Signup = () =>
                 placeholder="Username"
                 required
                 
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
+                // onChange={(e) => {
+                //   setName(e.target.value);
+                // }}
               />
             </div>
 
@@ -38,9 +38,9 @@ const Signup = () =>
                 required
                 
                 
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
+                // onChange={(e) => {
+                //   setEmail(e.target.value);
+                // }}
               />
             </div>
   
@@ -50,9 +50,9 @@ const Signup = () =>
                 placeholder="Password"
                 required
                 
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
+                // onChange={(e) => {
+                //   setPassword(e.target.value);
+                // }}
               />
             </div>
 
